@@ -1,0 +1,26 @@
+﻿<Window x:Class="GUIXiangQiGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUIXiangQiGame"
+        mc:Ignorable="d"
+        Title="beginWindowxaml" Height="450" Width="800"
+        Background="Tomato">
+
+    <StackPanel>
+        <TextBlock
+            HorizontalAlignment="Center"
+            Text="&#xE1CF;&#xE1CF;&#xE1CF;&#xE1CF;&#xE1CF;" FontSize="65" FontFamily="Segoe UI Symbol"
+            >
+        </TextBlock>
+
+        <TextBlock
+            Height="70" Width="520" Background="White"
+            FontSize="35"><Run Text="WELCOME TO XIANGQI GAME"/>
+        </TextBlock>
+        <Button Name ="play_button" Click="play_Click"
+            Height="60" Width="100" FontSize="30" Content="play" HorizontalAlignment="Stretch"/>
+    </StackPanel>
+</Window>
+    

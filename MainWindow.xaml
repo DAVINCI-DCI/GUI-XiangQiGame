@@ -5,22 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUIXiangQiGame"
         mc:Ignorable="d"
-        Title="beginWindowxaml" Height="450" Width="800"
-        Background="Tomato">
+        Title="XiangQI" Height="550" Width="500" >
+    <Window.Background>
+        <!--添加背景图片-->
+        <ImageBrush ImageSource="JPG/Login.png"/>
+    </Window.Background>
 
-    <StackPanel>
-        <TextBlock
-            HorizontalAlignment="Center"
-            Text="&#xE1CF;&#xE1CF;&#xE1CF;&#xE1CF;&#xE1CF;" FontSize="65" FontFamily="Segoe UI Symbol"
-            >
-        </TextBlock>
-
-        <TextBlock
-            Height="70" Width="520" Background="White"
-            FontSize="35"><Run Text="WELCOME TO XIANGQI GAME"/>
-        </TextBlock>
-        <Button Name ="play_button" Click="play_Click"
-            Height="60" Width="100" FontSize="30" Content="play" HorizontalAlignment="Stretch"/>
-    </StackPanel>
+    <Grid>
+        <!--跳转界面按钮-->
+        <Button x:Name ="play_button" Click="play_Click" VerticalContentAlignment="Center" Width="200" FontSize="30" Content="Play Game" Margin="290,128,10,322"/>
+        <!--显示菜单按钮-->
+        <Button x:Name ="play_rule" Click="menu_Click" VerticalContentAlignment="Center" 
+                Width="200" FontSize="30" Content="Game Rule" Margin="290,237,10,206"/>
+        <!--Binding为绑定点击事件，当点击按钮时才会显示Popup-->
+        <Popup x:Name="menuPop" StaysOpen="False" Margin="0" 
+               PlacementTarget="{ Binding ElementName=play_rule}" AllowsTransparency="True">
+            <!--下拉会弹出的组件（在这里是button）-->
+            <StackPanel Orientation="Vertical">
+                <Button x:Name ="ButtonBing" Content="BING" Click="menu_Click" Width="150"/>
+                <Button x:Name ="ButtonMa" Content="MA" Click="menu_Click" Width="180"/>
+                <Button x:Name ="ButtonPao" Content="PAO" Click="menu_Click" Width="150"/>
+                <Button x:Name ="ButtonShi" Content="SHI" Click="menu_Click" Width="180"/>
+                <Button x:Name ="ButtonXiang" Content="XIANG" Click="menu_Click" Width="150"/>
+                <Button x:Name ="ButtonChe" Content="CHE" Click="menu_Click" Width="180"/>
+                <Button x:Name ="ButtonJiang" Content="JIANG" Click="menu_Click" Width="150"/>
+            </StackPanel>
+        </Popup>
+        <!--顶头的标题-->
+        <TextBlock 
+            HorizontalAlignment="Center" Foreground="AliceBlue"
+            Text="Welcome to XinagQI Game" FontSize="35" FontFamily="Segoe UI Symbol" 
+            VerticalAlignment="Top" TextAlignment="Center" TextWrapping="Wrap" Margin="0,32,0,0"
+            />
+    </Grid>
 </Window>
     

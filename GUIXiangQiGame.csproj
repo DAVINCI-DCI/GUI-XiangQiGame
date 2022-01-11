@@ -8,6 +8,44 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="JPG\BlackBing.png" />
+    <None Remove="JPG\BlackChe.png" />
+    <None Remove="JPG\BlackJiang.png" />
+    <None Remove="JPG\BlackMa.png" />
+    <None Remove="JPG\BlackPao.png" />
+    <None Remove="JPG\BlackShi.png" />
+    <None Remove="JPG\BlackXiang.png" />
+    <None Remove="JPG\Login.png" />
+    <None Remove="JPG\QiPan.png" />
+    <None Remove="JPG\RedBing.png" />
+    <None Remove="JPG\RedChe.png" />
+    <None Remove="JPG\RedJiang.png" />
+    <None Remove="JPG\RedMa.png" />
+    <None Remove="JPG\RedPao.png" />
+    <None Remove="JPG\RedShi.png" />
+    <None Remove="JPG\RedXiang.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="JPG\BlackBing.png" />
+    <Resource Include="JPG\BlackChe.png" />
+    <Resource Include="JPG\BlackJiang.png" />
+    <Resource Include="JPG\BlackMa.png" />
+    <Resource Include="JPG\BlackPao.png" />
+    <Resource Include="JPG\BlackShi.png" />
+    <Resource Include="JPG\BlackXiang.png" />
+    <Resource Include="JPG\Login.png" />
+    <Resource Include="JPG\QiPan.png" />
+    <Resource Include="JPG\RedBing.png" />
+    <Resource Include="JPG\RedChe.png" />
+    <Resource Include="JPG\RedJiang.png" />
+    <Resource Include="JPG\RedMa.png" />
+    <Resource Include="JPG\RedPao.png" />
+    <Resource Include="JPG\RedShi.png" />
+    <Resource Include="JPG\RedXiang.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
 

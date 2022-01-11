@@ -10,6 +10,7 @@ namespace GUIXiangQiGame
     internal class Table
     { 
         public Chess[,] chessboard;
+
         public Table()
         {
             chessboard = new Chess[10, 9];//10行9列的棋子数组
@@ -108,26 +109,26 @@ namespace GUIXiangQiGame
 
             if (chess == null)
             {
-                MessageBox.Show("There is no chess on the position!");
+                MessageBox.Show("There is no chess on the position!","Empty Selection");//错误信息
                 return false;
             }
 
             //Make sure you don't choose the wrong pieces
             if (isRed && chess.Colour == Chess.ChessColour.BLACK)
             {
-                MessageBox.Show("It's red's turn now !");
+                MessageBox.Show("It's red's turn now !", "Wrong Choice of Chess Pieces");//错误信息
                 return false;
             }
 
             if (!isRed && chess.Colour == Chess.ChessColour.RED)
             {
-                MessageBox.Show("It's black's turn now !");
+                MessageBox.Show("It's black's turn now !", "Wrong Choice of Chess Pieces");//错误信息
                 return false;
             }
 
             return true;
         }
-
+        //参数showMessage判断当前是模拟路径还是正式下棋吃子
         public (bool successMove,bool isWin) MovingChess(bool showMessage,int XNow, int YNow, int XDes, int YDes)
         {
             Chess chess = chessboard[YNow - 1, XNow - 1];
@@ -140,17 +141,15 @@ namespace GUIXiangQiGame
                 if (!chess.MovingRule(XNow, YNow, XDes, YDes, chessboard))
                 {//每个棋子分别重写父类的MovingRule方法
                     if(showMessage)
-                        MessageBox.Show(chess.ToString() + " can't move like this!");//失败的情况
+                        MessageBox.Show(chess.ToString() + " can't move like this!","Illegal Move");//失败的情况
                     return (false,false);
                 }
-            }
-            else
-            {
+            }else{
                 //When moving a piece, it is blocked by pieces of the same color
                 if (chess_des.Colour == chess.Colour)
                 {
                     if (showMessage)
-                        MessageBox.Show("A chess is already here, Please choose another place !");
+                        MessageBox.Show("A chess is already here, Please choose another place !", "Illegal Move");//失败的情况
                     return (false,false);
                 }
 
@@ -158,18 +157,18 @@ namespace GUIXiangQiGame
                 if (!chess.MovingRule(XNow, YNow, XDes, YDes, chessboard))
                 {//每个棋子分别重写父类的MovingRule方法
                     if (showMessage)
-                        MessageBox.Show(chess.ToString() + " can't move like this!");
+                        MessageBox.Show(chess.ToString() + " can't move like this!", "Illegal Move");//失败的情况
                     return (false, false);
                 }
 
                 
                 if (chess_des.Colour == Chess.ChessColour.RED && chess_des.Type == Chess.TypeChess.JIANG)
-                    flag = true;//黄色赢
+                    flag = true;//红色赢
                 if (chess_des.Colour == Chess.ChessColour.BLACK && chess_des.Type == Chess.TypeChess.JIANG)
                     flag = true;//黑色赢
             }
 
-            if (showMessage)
+            if (showMessage)//如果只演示可行路径则不调换
             {
                 //Officially move chess pieces
                 chessboard[YDes - 1, XDes - 1] = chess; // 将Now 转到 Des

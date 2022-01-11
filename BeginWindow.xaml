@@ -1,56 +1,94 @@
-﻿
-<Window x:Class="GUIXiangQiGame.BeginWindow"
+﻿<Window x:Class="GUIXiangQiGame.BeginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUIXiangQiGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="700">
-    <Grid  Name="XiangQiGrid" ShowGridLines="True" HorizontalAlignment="Left">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
-        </Grid.ColumnDefinitions>
+        Title="XiangQI" Height="700" Width="800">
+    <StackPanel Orientation="Vertical">
 
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <!--黑色展示分数框-->
+            <TextBlock x:Name="BlackScore"
+                   Height="40" Width="200"
+                   FontSize="25"
+                   Text="Black Side  :  0"
+                   TextAlignment="Center"/>
+            <!--红色展示分数框-->
+            <TextBlock x:Name="RedScore"
+                   Height="40" Width="200"
+                   FontSize="25"
+                   Text="Red Side  :  0"
+                   TextAlignment="Center"/>
 
-        <TextBlock Name="GameState"
+        </StackPanel>
+        
+        <!--展示当前游戏状态-->
+        <TextBlock x:Name="GameState"
                    Height="50" Width="180"
                    Foreground="WhiteSmoke"
-                   FontSize="20"
+                   FontSize="30"
                    Background="Black"
-                   Grid.Column="8" Margin="92,23,-187,24" Grid.RowSpan="2" Grid.Row="1">
-        </TextBlock>
+                   TextAlignment="Center"/>
+        <!--棋盘布局9*10-->
+        <Grid  Name="XiangQiGrid" HorizontalAlignment="Center"
+           VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
 
-        <Button Name="Reset"
-                   Height="50" Width="100"
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <!--插入棋盘背景-->
+            <Grid.Background>
+                <ImageBrush ImageSource = "JPG/QiPan.png"/>
+            </Grid.Background>
+
+        </Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <!--重置按钮-->
+            <Button x:Name="Reset"
+                   Height="50" Width="130"
                    Foreground="WhiteSmoke"
                    FontSize="25"
                    Background="Black"
                    Click="Game_Button_Click"
-                   Grid.Column="8" Margin="92,3,-222,44" Grid.RowSpan="2" Grid.Row="3">
-            RESET
-        </Button>
-    </Grid>
+                   Content="Reset"/>
 
+            <!--占位，为了美观-->
+            <TextBlock
+                    Height="50" Width="150">
+            </TextBlock>
+            
+            <!--点击规则按钮-->
+            <Button x:Name="ClickRule"
+                   Height="50" Width="130"
+                   Foreground="WhiteSmoke"
+                   FontSize="25"
+                   Background="Black"
+                   Click="Game_Button_Click"
+                   Content="ClickRule"/>
+        </StackPanel>
+
+    </StackPanel>
 </Window>
         

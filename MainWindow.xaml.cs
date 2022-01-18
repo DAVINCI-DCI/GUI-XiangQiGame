@@ -40,10 +40,10 @@ namespace GUIXiangQiGame
         {
             Button button = (Button)sender;
             if (button.Name == "play_rule")
-                //点击时打开菜单
+                //点击时打开菜单 open menu
                 menuPop.IsOpen = true;
 
-            //点击时对应各自的规则
+            //点击时对应各自的规则  show each pieces rule
             if (button.Name == "ButtonBing")
             {
                 MessageBox.Show("Soldiers can only move and capture 1 point forward (not diagonally) until they cross the river. " +
